@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   
   s.ios.deployment_target = '6.0'
   s.osx.deployment_target = '10.8'
-
+  s.vendored_frameworks = 'MIHCrypto/OpenSSL/openssl.framework'
   s.requires_arc = true
 
   s.subspec 'Core' do |core|
