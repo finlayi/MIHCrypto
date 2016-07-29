@@ -77,6 +77,8 @@
 		5FDD19B218FDA0D800620929 /* MIHMessageDigest5.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD19B118FDA0D800620929 /* MIHMessageDigest5.m */; };
 		5FDD19B318FDA0D800620929 /* MIHMessageDigest5.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD19B118FDA0D800620929 /* MIHMessageDigest5.m */; };
 		5FDD19B718FDA19A00620929 /* MIHMessageDigest5Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD19B618FDA19900620929 /* MIHMessageDigest5Tests.m */; };
+		FEEEDCF21D4BDF6F0002168D /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEEEDCF11D4BDF6F0002168D /* openssl.framework */; };
+		FEEEDCF31D4BDF980002168D /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEEEDCF11D4BDF6F0002168D /* openssl.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +193,7 @@
 		A5DA88A3D3634CA3FB515223 /* Pods-MIHCrypto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MIHCrypto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MIHCrypto/Pods-MIHCrypto.debug.xcconfig"; sourceTree = "<group>"; };
 		DD19893A35DEA36E783D64C3 /* libPods-MIHCrypto.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MIHCrypto.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4FDE9709BEA2E03CC4F2A90 /* Pods-MIHCryptoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MIHCryptoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MIHCryptoTests/Pods-MIHCryptoTests.release.xcconfig"; sourceTree = "<group>"; };
+		FEEEDCF11D4BDF6F0002168D /* openssl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = openssl.framework; path = MIHCrypto/OpenSSL/openssl.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +201,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEEEDCF31D4BDF980002168D /* openssl.framework in Frameworks */,
 				5F35130318FC2590002BD9D9 /* Foundation.framework in Frameworks */,
 				5CFD12DD5A248EC519CC9F40 /* libPods-MIHCrypto.a in Frameworks */,
 			);
@@ -207,6 +211,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEEEDCF21D4BDF6F0002168D /* openssl.framework in Frameworks */,
 				5F35131318FC259F002BD9D9 /* XCTest.framework in Frameworks */,
 				54716BB0BA6B13F5C036ED8F /* libPods-MIHCryptoTests.a in Frameworks */,
 			);
@@ -270,6 +275,7 @@
 		5F35BD3C18F850E400596974 /* MIHCrypto */ = {
 			isa = PBXGroup;
 			children = (
+				FEEEDCF11D4BDF6F0002168D /* openssl.framework */,
 				5F35BD9118F8523E00596974 /* AES */,
 				5F35BD9618F8523E00596974 /* Core */,
 				5F7005BE1900657A003789B7 /* DES */,
@@ -505,7 +511,6 @@
 				5F3512FE18FC258F002BD9D9 /* Sources */,
 				5F3512FF18FC258F002BD9D9 /* Frameworks */,
 				5F35130018FC258F002BD9D9 /* CopyFiles */,
-				A7BAD35A4833C126510296DE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -596,21 +601,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		A7BAD35A4833C126510296DE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MIHCrypto/Pods-MIHCrypto-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B6BC459F559BDA2050159A4F /* [CP] Embed Pods Frameworks */ = {
@@ -766,6 +756,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A5DA88A3D3634CA3FB515223 /* Pods-MIHCrypto.debug.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MIHCrypto/OpenSSL",
+				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MIHCryptoOSX/MIHCryptoOSX-Prefix.pch";
@@ -784,6 +778,10 @@
 			baseConfigurationReference = 0FB55B920B9368890437DC55 /* Pods-MIHCrypto.release.xcconfig */;
 			buildSettings = {
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MIHCrypto/OpenSSL",
+				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MIHCryptoOSX/MIHCryptoOSX-Prefix.pch";
@@ -801,6 +799,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
+					"$(PROJECT_DIR)/MIHCrypto/OpenSSL",
 				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -827,6 +826,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
+					"$(PROJECT_DIR)/MIHCrypto/OpenSSL",
 				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

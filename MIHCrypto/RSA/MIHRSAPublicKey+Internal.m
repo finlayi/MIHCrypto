@@ -16,7 +16,7 @@
 //
 
 #import "MIHRSAPublicKey+Internal.h"
-#import <OpenSSL-Universal/openssl/evp.h>
+#import <openssl/evp.h>
 
 @implementation MIHRSAPublicKey (Internal)
 
